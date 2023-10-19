@@ -14,7 +14,9 @@
       <th scope="col">id</th>
       <th scope="col">Modelo</th>
       <th scope="col">Ano</th>
+      <th scope="col"></th>
       <th scope="col">Cor</th>
+      <th scope="col"></th>
     </tr> 
 
     <thead>
@@ -24,10 +26,17 @@
       @foreach(var item in @ViewBag.Motos)
     {
     <tr>
-      <th scope="row">mot_id</th>
+      <th scope="row">@item.mot_id</th>
       <td>@item.mot_modelo</td>
       <td>@item.mot_ano</td>
       <td>@item.mot_cor</td>
+                <td>
+                    <a href="/Motos/Apagar/@item.mot_id" name="id" id="id" class="btn btn-danger">Apagar</a>
+                </td>
+
+                <td>
+                    <a href="/Motos/Update/@item.mot_id" name="id" id="id" class="btn btn-danger">Atualizar</a>
+                </td>
     </tr>
 
             }

@@ -10,7 +10,7 @@ namespace Concessonária.DAL
         {
             if (banco == null) // classe da conexão
             {
-                banco = new SqlConnection(@"Server=.\SENAI2022; Database=Concessionaria; User Id =sa; Password=senai.123;");
+                banco = new SqlConnection(@"Server=.\SENAI; Database=Concessionaria; User Id =sa; Password=senai.123;");
             }
             return banco;
         }

@@ -45,6 +45,24 @@ namespace Concessonária.DAL
            
 
         }
-                                               
+
+        public bool UpdateCarros(Carros carro)
+        {
+
+            try
+            {
+                var sql = "update Carros set car_modelo  = (@car_modelo),  car_ano = (@car_ano), car_cor = (@car_cor) where car_id = @car_id";
+                var dados = _conexao.Execute(sql, carro);
+                return dados > 0;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+
+        }
+
     }
 }

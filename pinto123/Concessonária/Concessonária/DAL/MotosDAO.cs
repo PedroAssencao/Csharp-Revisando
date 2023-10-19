@@ -37,10 +37,29 @@ namespace Concessonária.DAL
 
         }
 
-        public void deletarMotos(Motos motos)
+        public void Apagar(Motos motos)
         {
-            var sql = "delete from Motos where mot_id = mot_id";
+            var sql = "delete from Motos where mot_id = @mot_id";
             var dados = _conexao.Execute(sql, motos);
+        }
+
+        public bool UpdateMotos(Motos motos)
+        {
+
+            try
+            {
+
+                var sql = "update Motos set mot_modelo  = (@mot_modelo),  mot_ano = (@mot_ano), mot_cor = (@mot_cor) where mot_id = @mot_id";
+                var dados = _conexao.Execute(sql, motos);
+                return dados > 0;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+
         }
     }
 }
